@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <context-param>
+        <description>Diretorio dos Arquivos de Mapas</description>
+        <param-name>map_directory</param-name>
+        <!--param-value>http://localhost/JMapper/</param-value-->
+        <param-value>file:///home/andreban/jmapper/</param-value>        
+        <!--param-value>/var/www/tomcat/</param-value-->
+    </context-param>
+    <context-param>
+        <description>Diretorio dos Arquivos de Tabulacao</description>
+        <param-name>tab_directory</param-name>
+        <!--param-value>http://localhost/JMapper/</param-value-->
+        <param-value>file:///home/andreban/jmapper/</param-value>        
+        <!--param-value>/var/www/tomcat/</param-value-->
+    </context-param>
+    <servlet>
+        <servlet-name>JPEGMapper</servlet-name>
+        <servlet-class>com.bandarra.jmapper.servlet.JPEGMapper</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateSession</servlet-name>
+        <servlet-class>com.bandarra.jmapper.servlet.MapSession</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JPEGMapper</servlet-name>
+        <url-pattern>/JPEGMapper</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateSession</servlet-name>
+        <url-pattern>/MapSession</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+	<welcome-file>
+            index.jsp
+        </welcome-file>
+    </welcome-file-list>
+</web-app>
